@@ -58,7 +58,11 @@ int main()
     cmatrix2 cm2("ex1.csv");
 
     // Question 2.1
-    std::vector<int> f = cm2.getVectorAtLine(5);
+    std::vector<int> f = cm2.getVectorAtLine(0);
+    printVector(f.begin(), f.end());
+
+    // Question 2.2
+    f = cm2.getVectorAtColumn(9);
     printVector(f.begin(), f.end());
 
     return 0;

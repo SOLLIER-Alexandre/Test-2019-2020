@@ -77,3 +77,25 @@ std::vector<int> cmatrix2::getVectorAtLine(const size_t& line)
 
     return ret;
 }
+
+// Question 2.2
+std::vector<int> cmatrix2::getVectorAtColumn(const size_t& column)
+{
+    // Instantiate return vector, filled with 0
+    std::vector<int> ret(_size, 0);
+
+    // Start looking for values in the specified column
+    std::shared_ptr<CNode<triplet>> node = matrix.getFictionalHead()->GetNextNode();
+    while (node != nullptr)
+    {
+        // If the actual node is on the specified line, update the vector accordingly
+        if (node->GetData().colNum == column)
+            ret[node->GetData().lineNum] = node->GetData().val;
+
+        // Get the next node, exit if we got to the fictional tail
+        node = node->GetNextNode();
+        if (node == matrix.getFictionalTail()) break;
+    }
+
+    return ret;
+}

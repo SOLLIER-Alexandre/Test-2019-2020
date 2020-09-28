@@ -21,6 +21,9 @@ public:
     // Question 2.1
     std::vector<int> getVectorAtLine(const size_t& line);
 
+    // Question 2.2
+    std::vector<int> getVectorAtColumn(const size_t& column);
+
 private:
     CList<triplet> matrix;
     size_t _size;
