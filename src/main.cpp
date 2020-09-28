@@ -27,7 +27,7 @@ const std::array<std::array<int, 10>, 10> example1 = {
 template <size_t lineCount, size_t colCount>
 void saveMatrixAsCsv(const std::string& filename, const std::array<std::array<int, colCount>, lineCount>& matrix)
 {
-    std::ofstream out("ex1.csv");
+    std::ofstream out(filename);
     for (size_t y = 0; y < lineCount; ++y)
     {
         for (size_t x = 0; x < colCount - 1; ++x)
@@ -64,6 +64,10 @@ int main()
     // Question 2.2
     f = cm2.getVectorAtColumn(9);
     printVector(f.begin(), f.end());
+
+    // Question 2.3
+    std::cout << "At l=5,c=4: expecting val=-1, got " << cm2.getValue(5, 4) << std::endl;
+    std::cout << "At l=9,c=0: expecting val=0, got " << cm2.getValue(9, 0) << std::endl;
 
     return 0;
 }
