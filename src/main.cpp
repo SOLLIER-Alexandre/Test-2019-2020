@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "cmatrix2.h"
+#include "cmatrix3.h"
 
 using namespace std;
 
@@ -58,16 +59,23 @@ int main()
     cmatrix2 cm2("ex1.csv");
 
     // Question 2.1
-    std::vector<int> f = cm2.getVectorAtLine(0);
-    printVector(f.begin(), f.end());
+    std::vector<int> vecInt = cm2.getVectorAtLine(0);
+    printVector(vecInt.begin(), vecInt.end());
 
     // Question 2.2
-    f = cm2.getVectorAtColumn(9);
-    printVector(f.begin(), f.end());
+    vecInt = cm2.getVectorAtColumn(9);
+    printVector(vecInt.begin(), vecInt.end());
 
     // Question 2.3
     std::cout << "At l=5,c=4: expecting val=-1, got " << cm2.getValue(5, 4) << std::endl;
     std::cout << "At l=9,c=0: expecting val=0, got " << cm2.getValue(9, 0) << std::endl;
+
+    // Exercise 3
+    cmatrix3 cm3("ex1.csv");
+
+    // Question 3.1
+    vecInt = cm3.getVectorAtLine(0);
+    printVector(vecInt.begin(), vecInt.end());
 
     return 0;
 }
