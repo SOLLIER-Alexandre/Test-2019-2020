@@ -21,6 +21,9 @@ public:
     // Question 3.2
     std::vector<int> getVectorAtColumn(const size_t& column) const;
 
+    // Question 3.3
+    int getValue(const size_t& line, const size_t& column) const;
+
 private:
     std::vector<CList<pairColVal>> matrix;
 

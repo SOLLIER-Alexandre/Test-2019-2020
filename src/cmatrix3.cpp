@@ -91,3 +91,22 @@ std::vector<int> cmatrix3::getVectorAtColumn(const size_t& column) const
 
     return ret;
 }
+
+// Question 3.3
+int cmatrix3::getValue(const size_t& line, const size_t& column) const
+{
+    // Start checking if the specified coordinates are leading to a stored value
+    std::shared_ptr<CNode<pairColVal>> node = matrix[line].getFictionalHead()->GetNextNode();
+    while (node != nullptr)
+    {
+        // If the actual node is on the specified column, return its value
+        if (node->GetData().first == column) return node->GetData().second;
+
+        // Get the next node, exit if we got to the fictional tail
+        node = node->GetNextNode();
+        if (node == matrix[line].getFictionalTail()) break;
+    }
+
+    // Didn't find a stored node, so the value is 0
+    return 0;
+}

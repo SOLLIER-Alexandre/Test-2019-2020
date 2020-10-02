@@ -81,5 +81,9 @@ int main()
     vecInt = cm3.getVectorAtColumn(9);
     printVector(vecInt.begin(), vecInt.end());
 
+    // Question 3.3
+    std::cout << "At l=5,c=4: expecting val=-1, got " << cm3.getValue(5, 4) << std::endl;
+    std::cout << "At l=9,c=0: expecting val=0, got " << cm3.getValue(9, 0) << std::endl;
+
     return 0;
 }

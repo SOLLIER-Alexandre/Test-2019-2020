@@ -25,7 +25,7 @@ public:
     std::vector<int> getVectorAtColumn(const size_t& column) const;
 
     // Question 2.3
-    const int& getValue(const size_t& line, const size_t& column) const;
+    int getValue(const size_t& line, const size_t& column) const;
 
 private:
     CList<triplet> matrix;
