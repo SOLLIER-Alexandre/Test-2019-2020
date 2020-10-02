@@ -77,5 +77,9 @@ int main()
     vecInt = cm3.getVectorAtLine(0);
     printVector(vecInt.begin(), vecInt.end());
 
+    // Question 3.2
+    vecInt = cm3.getVectorAtColumn(9);
+    printVector(vecInt.begin(), vecInt.end());
+
     return 0;
 }

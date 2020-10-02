@@ -55,12 +55,38 @@ std::vector<int> cmatrix3::getVectorAtLine(const size_t& line) const
     std::shared_ptr<CNode<pairColVal>> node = matrix[line].getFictionalHead()->GetNextNode();
     while (node != nullptr)
     {
-        // If the actual node is on the specified line, update the vector accordingly
+        // Actual node is != 0, set its value to the return vector
         ret[node->GetData().first] = node->GetData().second;
 
         // Get the next node, exit if we got to the fictional tail
         node = node->GetNextNode();
         if (node == matrix[line].getFictionalTail()) break;
+    }
+
+    return ret;
+}
+
+// Question 3.2
+std::vector<int> cmatrix3::getVectorAtColumn(const size_t& column) const
+{
+    // Instantiate return vector, filled with 0
+    std::vector<int> ret(matrix.size(), 0);
+
+    // Start looking in every line
+    for (size_t i = 0; i < matrix.size(); ++i)
+    {
+        // Start looking for values in the actual line
+        std::shared_ptr<CNode<pairColVal>> node = matrix[i].getFictionalHead()->GetNextNode();
+        while (node != nullptr)
+        {
+            // Actual node is != 0, set its value to the return vector
+            if (node->GetData().first == column)
+                ret[i] = node->GetData().second;
+
+            // Get the next node, exit if we got to the fictional tail
+            node = node->GetNextNode();
+            if (node == matrix[i].getFictionalTail()) break;
+        }
     }
 
     return ret;
